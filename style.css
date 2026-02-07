@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e0e0e0;
+    background: black;
+    overflow-x: hidden;
+}
+
+/* ФОН */
+.background {
+    position: fixed;
+    inset: 0;
+    background: url("images/bg2.png") center/cover no-repeat;
+    filter: brightness(0.45);
+    z-index: -2;
+}
+
+/* затемнение */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, transparent, #000 70%);
+    z-index: -1;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    text-align: center;
+    padding-top: 120px;
+}
+
+.logo {
+    max-width: 600px;
+    width: 90%;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.buttons {
+    margin-top: 40px;
+}
+
+button, .discord {
+    padding: 14px 30px;
+    margin: 10px;
+    font-size: 16px;
+    background: #7f00ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+button:hover, .discord:hover {
+    background: #9a3cff;
+    box-shadow: 0 0 15px #7f00ff;
+}
+
+.discord {
+    background: #5865F2;
+}
+
+.ip {
+    margin-top: 15px;
+    opacity: 0.7;
+}
+
+/* ABOUT */
+.about {
+    max-width: 800px;
+    margin: auto;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    color: #7f00ff;
+    margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+/* АНИМАЦИЯ */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== ТУМАН ===== */
+.fog {
+    position: fixed;
+    inset: -50%;
+    background: url("images/bg2.png") center/cover no-repeat;
+    opacity: 0.04;
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.fog1 {
+    animation: fogMove1 120s linear infinite;
+}
+
+.fog2 {
+    animation: fogMove2 180s linear infinite;
+}
+
+@keyframes fogMove1 {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-20%); }
+}
+
+@keyframes fogMove2 {
+    from { transform: translateX(-10%); }
+    to   { transform: translateX(10%); }
+}
+
+/* ===== ЧАСТИЦЫ ===== */
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.online {
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+.online span {
+    color: #7f00ff;
+    font-weight: bold;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.status {
+    margin-top: 6px;
+    font-size: 14px;
+    opacity: 0.85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #777;
+    box-shadow: 0 0 6px #777;
+    transition: 0.3s;
+}
+
+.status.online .dot {
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e;
+}
+
+.status.offline .dot {
+    background: #ef4444;
+    box-shadow: 0 0 10px #ef4444;
+}
+
+.online {
+    margin-top: 6px;
+    font-size: 15px;
+    text-align: center;
+    opacity: 0.85;
+}
+
+.online span {
+    color: #7f00ff;
+    font-weight: bold;
+}
+
+.status {
+    margin-top: 4px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.8;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #777;
+}
+
+.status.online .dot {
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.status.offline .dot {
+    background: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+}
+
+button.connect {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    box-shadow: 0 0 15px rgba(34,197,94,0.4);
+}
+
+button.connect:hover {
+    box-shadow: 0 0 25px rgba(34,197,94,0.8);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: #0a0a0a;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 0 40px #000;
+}
+
+.modal-content code {
+    display: block;
+    margin-top: 10px;
+    color: #7f00ff;
+}
+
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(127, 0, 255, 0.95);
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    box-shadow: 0 0 20px #7f00ff;
+    z-index: 20;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+.donate {
+    max-width: 800px;
+    margin: auto;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.donate h2 {
+    color: #7f00ff;
+    margin-bottom: 15px;
+}
+
+.donate p {
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 14px 34px;
+    font-size: 16px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7f00ff, #c084fc);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(127,0,255,0.4);
+}
+
+.donate-btn:hover {
+    box-shadow: 0 0 35px rgba(127,0,255,0.8);
+    transform: translateY(-2px);
+}
+
+.rules-panel {
+    position: absolute;
+
+    top: 115px;     /* ниже */
+    right: 100px;     /* левее */
+
+    width: 400px;
+
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 16px;
+
+    font-size: 14px;
+}
+
+
+
+.rules-panel h3 {
+    color: #7f00ff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.rules-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rules-panel li {
+    margin-bottom: 6px;
+    opacity: 0.85;
+}
+
+
+
+.rules-section {
+    margin-bottom: 12px;
+}
+
+.section-title {
+    color: #7f00ff;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.note {
+    font-size: 12px;
+    opacity: 0.65;
+    margin-left: 8px;
+}
