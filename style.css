@@ -379,3 +379,41 @@ button.connect:hover {
     opacity: 0.65;
     margin-left: 8px;
 }
+
+/* =====================
+   MOBILE ADAPTATION
+   ===================== */
+
+@media (max-width: 768px) {
+
+    /* скрываем правила */
+    .rules-panel {
+        display: none;
+    }
+
+    /* заголовок */
+    header h1 {
+        font-size: 28px;
+    }
+
+    /* секции */
+    section {
+        padding: 40px 15px;
+    }
+
+    /* кнопки */
+    button,
+    .donate-btn,
+    .buy-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    /* модальные окна */
+    .modal-content {
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
