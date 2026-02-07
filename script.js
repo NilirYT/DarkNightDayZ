@@ -112,12 +112,3 @@ function draw() {
 }
 
 draw();
-
-
-
-    document.querySelectorAll("button, .donate-btn, .buy-btn").forEach(btn => {
-    btn.addEventListener("click", handleClick);
-});
-
-
-
