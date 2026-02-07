@@ -107,8 +107,16 @@ function draw() {
             p.x = Math.random() * w;
         }
     }
+
+    
+
+    document.querySelectorAll("button, .donate-btn, .buy-btn").forEach(btn => {
+    btn.addEventListener("click", handleClick);
+});
+
     requestAnimationFrame(draw);
 }
 
 draw();
+
 
