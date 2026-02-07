@@ -108,15 +108,16 @@ function draw() {
         }
     }
 
-    
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+
 
     document.querySelectorAll("button, .donate-btn, .buy-btn").forEach(btn => {
     btn.addEventListener("click", handleClick);
 });
 
-    requestAnimationFrame(draw);
-}
-
-draw();
 
 
