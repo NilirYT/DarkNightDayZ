@@ -1,6 +1,3 @@
-function copyIP() {
-    navigator.clipboard.writeText("212.22.93.162:2302");
-
     // 🔊 звук клика
     function copyIP() {
     navigator.clipboard.writeText("212.22.93.162:2302");
@@ -36,8 +33,7 @@ async function updateOnline() {
     const statusText = document.getElementById("serverStatus");
 
     try {
-        const res = await fetch(
-            `https://api.battlemetrics.com/servers/${SERVER_ID}`
+        const res = await fetch(`https://api.battlemetrics.com/servers/${SERVER_ID}`);
         );
         const data = await res.json();
 
@@ -119,15 +115,6 @@ function draw() {
     sound.play().catch(() => {});
 }
 
-function playClickSound() {
-    const sound = document.getElementById("clickSound");
-    if (!sound) return;
-
-    sound.currentTime = 0;
-    sound.volume = 0.4;
-    sound.play().catch(() => {});
-}
-
 // 🔊 звук клика НА ВСЁ КЛИКАБЕЛЬНОЕ
 document.addEventListener("click", e => {
     if (
@@ -141,11 +128,10 @@ document.addEventListener("click", e => {
     ) {
         playClickSound();
     }
-})();
-
-
+});
 
 draw();
+
 
 
 
