@@ -116,22 +116,26 @@ function draw() {
 }
 
 // 🔊 звук клика НА ВСЁ КЛИКАБЕЛЬНОЕ
-document.addEventListener("click", e => {
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.addEventListener("click", e => {
     if (
-        e.target.closest("button") ||
-        e.target.closest("a") ||
-        e.target.closest("[onclick]") ||
-        e.target.closest(".btn") ||
-        e.target.closest(".card") ||
-        e.target.closest(".donate-btn") ||
-        e.target.closest(".buy-btn")
+      e.target.closest("button") ||
+      e.target.closest("a") ||
+      e.target.closest("[onclick]") ||
+      e.target.closest(".btn") ||
+      e.target.closest(".card") ||
+      e.target.closest(".donate-btn") ||
+      e.target.closest(".buy-btn")
     ) {
+      if (typeof playClickSound === "function") {
         playClickSound();
+      }
     }
+  });
+
+  if (typeof draw === "function") {
+    draw();
+  }
+
 });
-
-draw();
-
-
-
-
