@@ -119,13 +119,32 @@ function draw() {
     sound.play().catch(() => {});
 }
 
-document.addEventListener("click", e => {
-    const btn = e.target.closest("button, .donate-btn, .buy-btn");
-    if (!btn) return;
+function playClickSound() {
+    const sound = document.getElementById("clickSound");
+    if (!sound) return;
 
-    playClickSound();
+    sound.currentTime = 0;
+    sound.volume = 0.4;
+    sound.play().catch(() => {});
+}
+
+// 🔊 звук клика НА ВСЁ КЛИКАБЕЛЬНОЕ
+document.addEventListener("click", e => {
+    if (
+        e.target.closest("button") ||
+        e.target.closest("a") ||
+        e.target.closest("[onclick]") ||
+        e.target.closest(".btn") ||
+        e.target.closest(".card") ||
+        e.target.closest(".donate-btn") ||
+        e.target.closest(".buy-btn")
+    ) {
+        playClickSound();
+    }
 });
 
 
+
 draw();
+
 
