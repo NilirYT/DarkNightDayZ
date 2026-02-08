@@ -1,10 +1,11 @@
     // 🔊 звук клика
-    function copyIP() {
+function copyIP() {
     navigator.clipboard.writeText("212.22.93.162:2302");
 
     const toast = document.getElementById("toast");
-    toast.classList.add("show");
+    if (!toast) return;
 
+    toast.classList.add("show");
     setTimeout(() => {
         toast.classList.remove("show");
     }, 2000);
@@ -14,14 +15,15 @@
 const connectBtn = document.getElementById("connectBtn");
 const modal = document.getElementById("connectModal");
 
-connectBtn.addEventListener("click", () => {
-    modal.classList.add("show");
-});
+if (connectBtn && modal) {
+    connectBtn.addEventListener("click", () => {
+        modal.classList.add("show");
+    });
 
-modal.addEventListener("click", e => {
-    if (e.target === modal) modal.classList.remove("show");
-});
-
+    modal.addEventListener("click", e => {
+        if (e.target === modal) modal.classList.remove("show");
+    });
+}
 
 /* ===== ОНЛАЙН СЕРВЕРА ===== */
 
@@ -34,7 +36,6 @@ async function updateOnline() {
 
     try {
         const res = await fetch(`https://api.battlemetrics.com/servers/${SERVER_ID}`);
-        );
         const data = await res.json();
 
         const players = data.data.attributes.players;
@@ -67,6 +68,8 @@ setInterval(updateOnline, 60000);
 /* ===== ЧАСТИЦЫ (БЕЗ ИЗМЕНЕНИЙ) ===== */
 
 const canvas = document.getElementById("particles");
+if (!canvas) return;
+
 const ctx = canvas.getContext("2d");
 
 let w, h;
@@ -139,3 +142,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
