@@ -2,10 +2,8 @@ function copyIP() {
     navigator.clipboard.writeText("212.22.93.162:2302");
 
     // 🔊 звук клика
-    const sound = document.getElementById("clickSound");
-    sound.currentTime = 0;
-    sound.volume = 0.4; // тихо и приятно
-    sound.play();
+    function copyIP() {
+    navigator.clipboard.writeText("212.22.93.162:2302");
 
     const toast = document.getElementById("toast");
     toast.classList.add("show");
@@ -14,6 +12,7 @@ function copyIP() {
         toast.classList.remove("show");
     }, 2000);
 }
+
 
 const connectBtn = document.getElementById("connectBtn");
 const modal = document.getElementById("connectModal");
@@ -111,4 +110,22 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
+    function playClickSound() {
+    const sound = document.getElementById("clickSound");
+    if (!sound) return;
+
+    sound.currentTime = 0;
+    sound.volume = 0.4;
+    sound.play().catch(() => {});
+}
+
+document.addEventListener("click", e => {
+    const btn = e.target.closest("button, .donate-btn, .buy-btn");
+    if (!btn) return;
+
+    playClickSound();
+});
+
+
 draw();
+
