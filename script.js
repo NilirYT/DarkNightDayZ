@@ -141,10 +141,11 @@ document.addEventListener("click", e => {
     ) {
         playClickSound();
     }
-});
+})();
 
 
 
 draw();
+
 
 
