@@ -68,45 +68,48 @@ setInterval(updateOnline, 60000);
 /* ===== ЧАСТИЦЫ (БЕЗ ИЗМЕНЕНИЙ) ===== */
 
 const canvas = document.getElementById("particles");
-if (!canvas) return;
 
-const ctx = canvas.getContext("2d");
+if (canvas) {
+    const ctx = canvas.getContext("2d");
 
-let w, h;
-function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-}
-window.addEventListener("resize", resize);
-resize();
+    let w, h;
 
-const particles = [];
-for (let i = 0; i < 120; i++) {
-    particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: Math.random() * 1.5 + 0.5,
-        s: Math.random() * 0.3 + 0.1
-    });
-}
-
-function draw() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "rgba(255,255,255,0.15)";
-
-    for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        p.y += p.s;
-        if (p.y > h) {
-            p.y = -5;
-            p.x = Math.random() * w;
-        }
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
     }
 
-    requestAnimationFrame(draw);
+    window.addEventListener("resize", resize);
+    resize();
+
+    const particles = [];
+    for (let i = 0; i < 120; i++) {
+        particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 1.5 + 0.5,
+            s: Math.random() * 0.3 + 0.1
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = "rgba(255,255,255,0.15)";
+
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+
+            p.y += p.s;
+            if (p.y > h) {
+                p.y = -5;
+                p.x = Math.random() * w;
+            }
+        }
+
+        requestAnimationFrame(draw);
+    }
 }
 
     function playClickSound() {
@@ -142,4 +145,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
