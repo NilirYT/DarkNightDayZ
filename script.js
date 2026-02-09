@@ -1,6 +1,6 @@
     // 🔊 звук клика
 function copyIP() {
-    navigator.clipboard.writeText("212.22.93.162:2302");
+    navigator.clipboard.writeText("212.22.92.8:2312");
 
     const toast = document.getElementById("toast");
     if (!toast) return;
@@ -145,5 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
