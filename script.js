@@ -27,7 +27,7 @@ if (connectBtn && modal) {
 
 /* ===== ОНЛАЙН СЕРВЕРА ===== */
 
-const SERVER_ID = "37612819";
+const SERVER_ID = "28428003";
 
 async function updateOnline() {
     const onlineEl = document.getElementById("onlineCount");
@@ -145,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
 
